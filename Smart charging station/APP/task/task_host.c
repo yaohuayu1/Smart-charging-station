@@ -1,0 +1,21 @@
+#include "SWM320.h"
+
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+static TaskHandle_t TaskHandle_host; 
+extern void myprintf( char* format, ... );
+void task_host_entry(void* arg)
+{
+    
+    myprintf("%s\r\n",__FUNCTION__);
+    while(1);
+}
+
+void create_task_of_host(void)
+{
+    myprintf("%s\r\n",__FUNCTION__);
+    //创建任务
+    xTaskCreate(task_host_entry, (const char *)"host", 1024, NULL, 2, &TaskHandle_host);
+}
