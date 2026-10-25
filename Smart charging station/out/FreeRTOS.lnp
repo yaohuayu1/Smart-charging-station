@@ -30,6 +30,7 @@
 ".\out\task_host.o"
 ".\out\task_listen.o"
 ".\out\task_start.o"
+".\out\fk_drvp_gpio.o"
 --library_type=microlib --strict --scatter ".\out\FreeRTOS.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

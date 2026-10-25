@@ -1,4 +1,5 @@
 .\out\task_host.o: APP\task\task_host.c
+.\out\task_host.o: .\framework\framework.h
 .\out\task_host.o: ..\..\SWM320_StdPeriph_Driver\CSL\CMSIS\DeviceSupport\SWM320.h
 .\out\task_host.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\out\task_host.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
@@ -39,3 +40,9 @@
 .\out\task_host.o: .\APP\FreeRTOS\include\task.h
 .\out\task_host.o: .\APP\FreeRTOS\include\list.h
 .\out\task_host.o: .\APP\FreeRTOS\include\queue.h
+.\out\task_host.o: .\APP\FreeRTOS\include\semphr.h
+.\out\task_host.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\out\task_host.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
+.\out\task_host.o: .\framework\fk_typedef.h
+.\out\task_host.o: .\framework\./drive_port/fk_drvp_typedef.h
+.\out\task_host.o: .\framework\./drive/fk_drv_typedef.h

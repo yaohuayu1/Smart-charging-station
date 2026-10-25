@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\SWM320_StdPeriph_Driver\CSL\CMSIS\CoreSupport;..\..\SWM320_StdPeriph_Driver\CSL\CMSIS\DeviceSupport;..\..\SWM320_StdPeriph_Driver\CSL\SWM320_StdPeriph_Driver;.\APP;.\APP\FreeRTOS\include;.\APP\FreeRTOS\portable\RVDS\ARM_CM3</IncludePath>
+              <IncludePath>..\..\SWM320_StdPeriph_Driver\CSL\CMSIS\CoreSupport;..\..\SWM320_StdPeriph_Driver\CSL\CMSIS\DeviceSupport;..\..\SWM320_StdPeriph_Driver\CSL\SWM320_StdPeriph_Driver;.\APP;.\APP\FreeRTOS\include;.\APP\FreeRTOS\portable\RVDS\ARM_CM3;.\framework</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -559,6 +559,22 @@
               <FileName>task_start.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\task\task_start.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>fk</GroupName>
+        </Group>
+        <Group>
+          <GroupName>fk/drive</GroupName>
+        </Group>
+        <Group>
+          <GroupName>fk/drive_port</GroupName>
+          <Files>
+            <File>
+              <FileName>fk_drvp_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\framework\drive_port\fk_drvp_gpio.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,8 +1,4 @@
-#include "SWM320.h"
-
-#include "FreeRTOS.h"
-#include "task.h"
-#include "queue.h"
+#include "framework.h"
 extern void myprintf( char* format, ... );
 
 void task_listen_entry(void* arg)

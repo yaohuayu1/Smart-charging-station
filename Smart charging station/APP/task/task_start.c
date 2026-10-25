@@ -1,11 +1,4 @@
-#include "SWM320.h"
-
-#include "FreeRTOS.h"
-#include "task.h"
-#include "queue.h"
-#include "semphr.h"
-#include <stdarg.h>
-#include <string.h>
+#include "framework.h"
 extern void create_task_of_host(void);
 extern void create_task_of_listen(void);
 extern void create_task_of_ctrl(void);
@@ -19,7 +12,6 @@ static TaskHandle_t TaskHandle_start;
 
 void task_start_entry(void* arg)
 {
-    uint32_t systick = 0;
     printf("%s\r\n",__FUNCTION__);
     //初始化myprintf
     cslock_init();
@@ -27,11 +19,23 @@ void task_start_entry(void* arg)
     create_task_of_host();
     create_task_of_listen();
     create_task_of_ctrl();
+    
+    //设置GPIO模式  M2(26)/B12(3)
+    drvp_gpio->set_mode(3,PIN_MODE_OUTPUT);
+    drvp_gpio->set_mode(26,PIN_MODE_OUTPUT);
+    
+    
+    
     while(1)
     {
-//        systick = xTaskGetTickCount();
-//        myprintf("%d\r\n",systick);
-        vTaskDelay(pdMS_TO_TICKS( 1000 ));
+        //GPIO输出高电平
+        drvp_gpio->write_pin(3,PIN_HIGH);
+        drvp_gpio->write_pin(26,PIN_HIGH);
+        vTaskDelay(1000);
+        
+        drvp_gpio->write_pin(3,PIN_LOW);
+        drvp_gpio->write_pin(26,PIN_LOW);
+        vTaskDelay(1000);       
     }   
 }
 

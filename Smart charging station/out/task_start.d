@@ -1,4 +1,5 @@
 .\out\task_start.o: APP\task\task_start.c
+.\out\task_start.o: .\framework\framework.h
 .\out\task_start.o: ..\..\SWM320_StdPeriph_Driver\CSL\CMSIS\DeviceSupport\SWM320.h
 .\out\task_start.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\out\task_start.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
@@ -42,3 +43,6 @@
 .\out\task_start.o: .\APP\FreeRTOS\include\semphr.h
 .\out\task_start.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\out\task_start.o: D:\Keil5\ARM\ARMCC\Bin\..\include\string.h
+.\out\task_start.o: .\framework\fk_typedef.h
+.\out\task_start.o: .\framework\./drive_port/fk_drvp_typedef.h
+.\out\task_start.o: .\framework\./drive/fk_drv_typedef.h

@@ -1,9 +1,4 @@
-#include "SWM320.h"
-
-#include "FreeRTOS.h"
-#include "task.h"
-#include "queue.h"
-
+#include "framework.h"
 static TaskHandle_t TaskHandle_host; 
 extern void myprintf( char* format, ... );
 void task_host_entry(void* arg)
