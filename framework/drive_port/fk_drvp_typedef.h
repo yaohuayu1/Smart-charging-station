@@ -1,0 +1,59 @@
+
+
+
+#define PIN_NONE                (-RT_EEMPTY)
+
+#define PIN_LOW                 0x00 /*!< low level */
+#define PIN_HIGH                0x01 /*!< high level */
+
+#define PIN_MODE_OUTPUT         0x00 /*!< output mode */
+#define PIN_MODE_INPUT          0x01 /*!< input mode */
+#define PIN_MODE_INPUT_PULLUP   0x02 /*!< input mode with pull-up */
+#define PIN_MODE_INPUT_PULLDOWN 0x03 /*!< input mode with pull-down */
+#define PIN_MODE_OUTPUT_OD      0x04 /*!< output mode with open-drain */
+
+
+
+#define PIN_IRQ_MODE_RISING             0x00 /*!< rising edge trigger */
+#define PIN_IRQ_MODE_FALLING            0x01 /*!< falling edge trigger */
+#define PIN_IRQ_MODE_RISING_FALLING     0x02 /*!< rising and falling edge trigger */
+#define PIN_IRQ_MODE_HIGH_LEVEL         0x03 /*!< high level trigger */
+#define PIN_IRQ_MODE_LOW_LEVEL          0x04 /*!< low level trigger */
+
+#define PIN_IRQ_DISABLE                 0x00 /*!< disable irq */
+#define PIN_IRQ_ENABLE                  0x01 /*!< enable irq */
+
+#define PIN_IRQ_PIN_NONE                PIN_NONE /*!< no pin irq */
+
+typedef void (*pin_callback_t)(void* args);
+
+typedef struct
+{
+    void (*set_mode)(int pin,int mode);
+    void (*write_pin)(int pin,int value);
+    int (*read_pin)(int pin);
+    int (*attach_irq)(int pin,int mode,pin_callback_t cb,void *args);
+    int (*detach_irq)(int pin);
+    int (*irq_enable)(int pin,int enabled);
+}drvp_gpio_t;
+
+//串口
+enum {
+    _e_uart0 = 0,
+    _e_uart1,
+    _e_uart2,
+    _e_uart3,
+    _e_max_uart
+};//对于上层驱动，只需要知道串口号，不需要知道具体的寄存器
+
+typedef struct
+{
+    void (*uart_init)(int index,uint32_t baudrate);
+    void (*uart_open)(int index);
+    void (*uart_close)(int index);
+    void (*uart_write)(int index,uint8_t dat);
+    void (*set_int_rxfunc)(int index,void* cb);
+    void (*irq_enable)(int index,int enable);
+}drvp_uart_t;
+
+
