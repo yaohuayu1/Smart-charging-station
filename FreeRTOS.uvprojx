@@ -578,6 +578,11 @@
               <FileType>1</FileType>
               <FilePath>.\framework\drive\fk_drv_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>fk_drv_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\framework\drive\fk_drv_rtc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -592,6 +597,11 @@
               <FileName>fk_drvp_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\framework\drive_port\fk_drvp_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>fk_drvp_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\framework\drive_port\fk_drvp_rtc.c</FilePath>
             </File>
           </Files>
         </Group>

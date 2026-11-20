@@ -32,8 +32,10 @@
 ".\out\task_start.o"
 ".\out\fk_drv_gpio.o"
 ".\out\fk_drv_uart.o"
+".\out\fk_drv_rtc.o"
 ".\out\fk_drvp_gpio.o"
 ".\out\fk_drvp_uart.o"
+".\out\fk_drvp_rtc.o"
 ".\out\loopbuf.o"
 --library_type=microlib --strict --scatter ".\out\FreeRTOS.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

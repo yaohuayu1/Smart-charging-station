@@ -56,4 +56,15 @@ typedef struct
     void (*irq_enable)(int index,int enable);
 }drvp_uart_t;
 
+//借助官方sdk的数据类型
+typedef RTC_DateTime rtc_dt_t;
 
+typedef struct 
+{
+    void (*rtc_init)(rtc_dt_t* dt);
+    void (*rtc_start)(void);
+    void (*rtc_stop)(void);
+    rtc_dt_t* (*get_dt)(void);
+    void (*rtc_read)(rtc_dt_t* dt);
+    
+}drvp_rtc_t;

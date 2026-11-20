@@ -80,7 +80,6 @@ static void irq_enable(int index,int enable)
     drvp_uart->irq_enable(index,enable);
 }
 
-
 static drv_uart_t do_drv_uart = 
 {
     .uart_init = uart_init,

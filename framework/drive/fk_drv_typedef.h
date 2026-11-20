@@ -32,3 +32,29 @@ typedef struct
 }drv_uart_t;
 
 extern drv_uart_t* uart;
+/*
+typedef struct {
+	uint16_t Year;
+	uint8_t  Month;
+	uint8_t  Date;
+	uint8_t  Day;			//RTC_SUN、RTC_MON、RTC_TUE、RTC_WED、RTC_THU、RTC_FRI、RTC_SAT
+	uint8_t  Hour;
+	uint8_t  Minute;
+	uint8_t  Second;
+} RTC_DateTime;
+
+*/
+//借助官方sdk的数据类型
+
+
+typedef struct 
+{
+    void (*rtc_init)(rtc_dt_t* dt);
+    void (*rtc_start)(void);
+    void (*rtc_stop)(void);
+    rtc_dt_t* (*get_dt)(void);
+    void (*rtc_read)(rtc_dt_t* dt);
+    
+}drv_rtc_t;
+
+extern drv_rtc_t* rtc;

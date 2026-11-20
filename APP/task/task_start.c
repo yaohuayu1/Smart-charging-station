@@ -8,7 +8,7 @@ void myprintf( char* format, ... );
 static int flag_init = 0;
 static SemaphoreHandle_t cslock; 
 static TaskHandle_t TaskHandle_start; 
-
+extern drvp_rtc_t* drvp_rtc;
 
 void task_start_entry(void* arg)
 {
@@ -20,25 +20,33 @@ void task_start_entry(void* arg)
     create_task_of_listen();
     create_task_of_ctrl();
     
-    //设置GPIO模式  M2(26)/B12(3)
-    gpio->set_mode(3,PIN_MODE_OUTPUT);
-    gpio->set_mode(26,PIN_MODE_OUTPUT);
+    rtc_dt_t dt;
+    dt.Year = 2026;
+    dt.Month = 10;
+    dt.Date = 22;
+    dt.Hour = 19;
+    dt.Minute = 48;
+    dt.Second = 0;
+    
+    drvp_rtc->rtc_init( &dt );
+    drvp_rtc->rtc_start();
+    
+    
+    rtc_dt_t* nowdt = drvp_rtc->get_dt();
+    
+    drvp_rtc->rtc_read( nowdt );
     
     
     
     while(1)
     {
-        //GPIO输出高电平
-        gpio->write_pin(3,PIN_HIGH);
-        gpio->write_pin(26,PIN_HIGH);
-        printf("%x %x ",gpio->read_pin(3),gpio->read_pin(26));
+        myprintf("%04d-%02d-%02d %02d:%02d:%02d \r\n",
+			nowdt->Year,nowdt->Month,nowdt->Date,
+			nowdt->Hour,nowdt->Minute,nowdt->Second
+		);
         vTaskDelay(1000);
-        
-        gpio->write_pin(3,PIN_LOW);
-        gpio->write_pin(26,PIN_LOW);
-        printf("%x %x ",gpio->read_pin(3),gpio->read_pin(26));
-        vTaskDelay(1000);       
-    }   
+    }
+   
 }
 
 
